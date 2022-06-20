@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.1 on win32)" generated="20220620 12:31:31.428" rpa="false" schemaversion="3">
+<suite id="s1" name="NGDZ" source="B:\Project\NGDZ">
+<suite id="s1-s1" name="BD TEST" source="B:\Project\NGDZ\BD_TEST.robot">
+<test id="s1-s1-t1" name="Post" line="11">
+<kw name="Test Setup" type="SETUP">
+<kw name="Create Session" library="Req">
+<arg>alias</arg>
+<arg>http://localhost:3000</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220620 12:31:31.891" level="INFO">Creating Session using : alias=alias, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220620 12:31:31.891" endtime="20220620 12:31:31.892"/>
+</kw>
+<status status="PASS" starttime="20220620 12:31:31.890" endtime="20220620 12:31:31.892"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body1}</var>
+<arg>category=17</arg>
+<arg>categoryname=Thriller</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220620 12:31:31.894" level="INFO">${body1} = {'category': '17', 'categoryname': 'Thriller'}</msg>
+<status status="PASS" starttime="20220620 12:31:31.892" endtime="20220620 12:31:31.894"/>
+</kw>
+<kw name="POST On Session" library="Req">
+<var>${resp}</var>
+<arg>alias</arg>
+<arg>/categories</arg>
+<arg>json=${body1}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220620 12:31:31.925" level="INFO">POST Request : url=http://localhost:3000/categories 
+ path_url=/categories 
+ headers={'User-Agent': 'python-requests/2.25.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '46', 'Content-Type': 'application/json'} 
+ body=b'{"category": "17", "categoryname": "Thriller"}' 
+ </msg>
+<msg timestamp="20220620 12:31:31.925" level="INFO">POST Response : url=http://localhost:3000/categories 
+ status=201, reason=Created 
+ headers={'Transfer-Encoding': 'chunked', 'Date': 'Mon, 20 Jun 2022 09:31:31 GMT', 'Server': 'postgrest/9.0.0', 'Content-Range': '*/*'} 
+ body=None 
+ </msg>
+<msg timestamp="20220620 12:31:31.925" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20220620 12:31:31.894" endtime="20220620 12:31:31.925"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body2}</var>
+<arg>category=18</arg>
+<arg>categoryname=Dorama</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220620 12:31:31.926" level="INFO">${body2} = {'category': '18', 'categoryname': 'Dorama'}</msg>
+<status status="PASS" starttime="20220620 12:31:31.925" endtime="20220620 12:31:31.926"/>
+</kw>
+<kw name="POST On Session" library="Req">
+<var>${resp}</var>
+<arg>alias</arg>
+<arg>/categories</arg>
+<arg>json=${body2}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220620 12:31:31.933" level="INFO">POST Request : url=http://localhost:3000/categories 
+ path_url=/categories 
+ headers={'User-Agent': 'python-requests/2.25.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '44', 'Content-Type': 'application/json'} 
+ body=b'{"category": "18", "categoryname": "Dorama"}' 
+ </msg>
+<msg timestamp="20220620 12:31:31.933" level="INFO">POST Response : url=http://localhost:3000/categories 
+ status=201, reason=Created 
+ headers={'Transfer-Encoding': 'chunked', 'Date': 'Mon, 20 Jun 2022 09:31:31 GMT', 'Server': 'postgrest/9.0.0', 'Content-Range': '*/*'} 
+ body=None 
+ </msg>
+<msg timestamp="20220620 12:31:31.934" level="INFO">${resp} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20220620 12:31:31.926" endtime="20220620 12:31:31.934"/>
+</kw>
+<kw name="Test Teardown" type="TEARDOWN">
+<kw name="Delete All Sessions" library="Req">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20220620 12:31:31.935" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20220620 12:31:31.935" endtime="20220620 12:31:31.935"/>
+</kw>
+<status status="PASS" starttime="20220620 12:31:31.934" endtime="20220620 12:31:31.935"/>
+</kw>
+<status status="PASS" starttime="20220620 12:31:31.889" endtime="20220620 12:31:31.935"/>
+</test>
+<test id="s1-s1-t2" name="Post_Check" line="16">
+<kw name="Test Setup" type="SETUP">
+<kw name="Create Session" library="Req">
+<arg>alias</arg>
+<arg>http://localhost:3000</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220620 12:31:31.937" level="INFO">Creating Session using : alias=alias, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220620 12:31:31.937" endtime="20220620 12:31:31.937"/>
+</kw>
+<status status="PASS" starttime="20220620 12:31:31.936" endtime="20220620 12:31:31.937"/>
+</kw>
+<kw name="Get And Check Response">
+<arg>categories</arg>
+<arg>category=gt.0</arg>
+<arg>200</arg>
+<kw name="GET On Session" library="Req">
+<var>${response}</var>
+<arg>alias</arg>
+<arg>/${table}?</arg>
+<arg>params=${params}</arg>
+<arg>expected_status=${expected result}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220620 12:31:31.953" level="INFO">GET Request : url=http://localhost:3000/categories?category=gt.0 
+ path_url=/categories?category=gt.0 
+ headers={'User-Agent': 'python-requests/2.25.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220620 12:31:31.953" level="INFO">GET Response : url=http://localhost:3000/categories?category=gt.0 
+ status=200, reason=OK 
+ headers={'Transfer-Encoding': 'chunked', 'Date': 'Mon, 20 Jun 2022 09:31:31 GMT', 'Server': 'postgrest/9.0.0', 'Content-Range': '0-17/*', 'Content-Location': '/categories?category=gt.0', 'Content-Type': 'application/json; charset=utf-8'} 
+ body=[{"category":1,"categoryname":"Action"}, 
+ {"category":2,"categoryname":"Animation"}, 
+ {"category":3,"categoryname":"Children"}, 
+ {"category":4,"categoryname":"Classics"}, 
+ {"category":5,"categoryname":"Comedy"}, 
+ {"category":6,"categoryname":"Documentary"}, 
+ {"category":7,"categoryname":"Drama"}, 
+ {"category":8,"categoryname":"Family"}, 
+ {"category":9,"categoryname":"Foreign"}, 
+ {"category":10,"categoryname":"Games"}, 
+ {"category":11,"categoryname":"Horror"}, 
+ {"category":12,"categoryname":"Music"}, 
+ {"category":13,"categoryname":"New"}, 
+ {"category":14,"categoryname":"Sci-Fi"}, 
+ {"category":15,"categoryname":"Sports"}, 
+ {"category":16,"categoryname":"Travel"}, 
+ {"category":17,"categoryname":"Thriller"}, 
+ {"category":18,"categoryname":"Dorama"}] 
+ </msg>
+<msg timestamp="20220620 12:31:31.953" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220620 12:31:31.938" endtime="20220620 12:31:31.953"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${expected result} != 200</arg>
+<arg>should contain</arg>
+<arg>${response.json()}[message]</arg>
+<arg>${message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220620 12:31:31.953" endtime="20220620 12:31:31.954"/>
+</kw>
+<status status="PASS" starttime="20220620 12:31:31.937" endtime="20220620 12:31:31.955"/>
+</kw>
+<kw name="Test Teardown" type="TEARDOWN">
+<kw name="Delete All Sessions" library="Req">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20220620 12:31:31.956" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20220620 12:31:31.956" endtime="20220620 12:31:31.956"/>
+</kw>
+<status status="PASS" starttime="20220620 12:31:31.955" endtime="20220620 12:31:31.957"/>
+</kw>
+<status status="PASS" starttime="20220620 12:31:31.936" endtime="20220620 12:31:31.957"/>
+</test>
+<test id="s1-s1-t3" name="Finding_the_data" line="20">
+<kw name="Test Setup" type="SETUP">
+<kw name="Create Session" library="Req">
+<arg>alias</arg>
+<arg>http://localhost:3000</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220620 12:31:31.959" level="INFO">Creating Session using : alias=alias, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220620 12:31:31.959" endtime="20220620 12:31:31.959"/>
+</kw>
+<status status="PASS" starttime="20220620 12:31:31.958" endtime="20220620 12:31:31.960"/>
+</kw>
+<kw name="Get And Check Response">
+<arg>categories</arg>
+<arg>category=gt.5</arg>
+<arg>200</arg>
+<kw name="GET On Session" library="Req">
+<var>${response}</var>
+<arg>alias</arg>
+<arg>/${table}?</arg>
+<arg>params=${params}</arg>
+<arg>expected_status=${expected result}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220620 12:31:31.970" level="INFO">GET Request : url=http://localhost:3000/categories?category=gt.5 
+ path_url=/categories?category=gt.5 
+ headers={'User-Agent': 'python-requests/2.25.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220620 12:31:31.970" level="INFO">GET Response : url=http://localhost:3000/categories?category=gt.5 
+ status=200, reason=OK 
+ headers={'Transfer-Encoding': 'chunked', 'Date': 'Mon, 20 Jun 2022 09:31:31 GMT', 'Server': 'postgrest/9.0.0', 'Content-Range': '0-12/*', 'Content-Location': '/categories?category=gt.5', 'Content-Type': 'application/json; charset=utf-8'} 
+ body=[{"category":6,"categoryname":"Documentary"}, 
+ {"category":7,"categoryname":"Drama"}, 
+ {"category":8,"categoryname":"Family"}, 
+ {"category":9,"categoryname":"Foreign"}, 
+ {"category":10,"categoryname":"Games"}, 
+ {"category":11,"categoryname":"Horror"}, 
+ {"category":12,"categoryname":"Music"}, 
+ {"category":13,"categoryname":"New"}, 
+ {"category":14,"categoryname":"Sci-Fi"}, 
+ {"category":15,"categoryname":"Sports"}, 
+ {"category":16,"categoryname":"Travel"}, 
+ {"category":17,"categoryname":"Thriller"}, 
+ {"category":18,"categoryname":"Dorama"}] 
+ </msg>
+<msg timestamp="20220620 12:31:31.971" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220620 12:31:31.960" endtime="20220620 12:31:31.971"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${expected result} != 200</arg>
+<arg>should contain</arg>
+<arg>${response.json()}[message]</arg>
+<arg>${message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220620 12:31:31.971" endtime="20220620 12:31:31.972"/>
+</kw>
+<status status="PASS" starttime="20220620 12:31:31.960" endtime="20220620 12:31:31.972"/>
+</kw>
+<kw name="Get And Check Response">
+<arg>customers</arg>
+<arg>creditcardtype=eq.1&amp;state=like.DC</arg>
+<arg>200</arg>
+<kw name="GET On Session" library="Req">
+<var>${response}</var>
+<arg>alias</arg>
+<arg>/${table}?</arg>
+<arg>params=${params}</arg>
+<arg>expected_status=${expected result}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220620 12:31:31.986" level="INFO">GET Request : url=http://localhost:3000/customers?creditcardtype=eq.1&amp;state=like.DC 
+ path_url=/customers?creditcardtype=eq.1&amp;state=like.DC 
+ headers={'User-Agent': 'python-requests/2.25.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220620 12:31:31.986" level="INFO">GET Response : url=http://localhost:3000/customers?creditcardtype=eq.1&amp;state=like.DC 
+ status=200, reason=OK 
+ headers={'Transfer-Encoding': 'chunked', 'Date': 'Mon, 20 Jun 2022 09:31:31 GMT', 'Server': 'postgrest/9.0.0', 'Content-Range': '0-41/*', 'Content-Location': '/customers?creditcardtype=eq.1&amp;state=like.DC', 'Content-Type': 'application/json; charset=utf-8'} 
+ body=[{"customerid":245,"firstname":"RAAFCR","lastname":"UIREZUJYWI","address1":"5091884392 Dell Way","address2":"\\N","city":"ICRNTYM","state":"DC","zip":92098,"country":"US","region":1,"email":"UIREZUJYWI@dell.com","phone":"5091884392","creditcardtype":1,"creditcard":"4.46117E+15","creditcardexpiration":"2011/07","username":"user245","password":"password","age":43,"income":40000,"gender":"M"}, 
+ {"customerid":264,"firstname":"DGWUSV","lastname":"QCFXCHGKPG","address1":"6326537996 Dell Way","address2":"\\N","city":"BFNTNTV","state":"DC","zip":33931,"country":"US","region":1,"email":"QCFXCHGKPG@dell.com","phone":"6326537996","creditcardtype":1,"creditcard":"5.18983E+15","creditcardexpiration":"2012/05","username":"user264","password":"password","age":42,"income":20000,"gender":"M"}, 
+ {"customerid":620,"firstname":"KRGLMJ","lastname":"VBBBJSRSBB","address1":"4261718017 Dell Way","address2":"\\N","city":"QDAUPCC","state":"DC","zip":92705,"country":"US","region":1,"email":"VBBBJSRSBB@dell.com","phone":"4261718017","creditcardtype":1,"creditcard":"2.83138E+15","creditcardexpiration":"2011/04","username":"user620","password":"password","age":85,"income":20000,"gender":"M"}, 
+ {"customerid":799,"firstname":"TAPDMF","lastname":"TSSPHBDPVR","address1":"6765409057 Dell Way","address2":"\\N","city":"ELRFQHB","state":"DC","zip":16993,"country":"US","region":1,"email":"TSSPHBDPVR@dell.com","phone":"6765409057","creditcardtype":1,"creditcard":"6.62838E+15","creditcardexpiration":"2011/11","username":"user799","password":"password","age":90,"income":60000,"gender":"M"}, 
+ {"customerid":813,"firstname":"CFGEIK","lastname":"ADAQDIYKAU","address1":"6444241634 Dell Way","address2":"\\N","city":"MRNOPYM","state":"DC","zip":55811,"country":"US","region":1,"email":"ADAQDIYKAU@dell.com","phone":"6444241634","creditcardtype":1,"creditcard":"3.60431E+15","creditcardexpiration":"2009/05","username":"user813","password":"password","age":58,"income":60000,"gender":"M"}, 
+ {"customerid":824,"firstname":"UDQXHN","lastname":"AQYQTOGIJP","address1":"9074522634 Dell Way","address2":"\\N","city":"VOXUAKH","state":"DC","zip":75257,"country":"US","region":1,"email":"AQYQTOGIJP@dell.com","phone":"9074522634","creditcardtype":1,"creditcard":"9.22363E+15","creditcardexpiration":"2011/06","username":"user824","password":"password","age":73,"income":60000,"gender":"M"}, 
+ {"customerid":1142,"firstname":"ECGIVU","lastname":"CLLEDRZKOK","address1":"3822017164 Dell Way","address2":"\\N","city":"ZVMIOJT","state":"DC","zip":34769,"country":"US","region":1,"email":"CLLEDRZKOK@dell.com","phone":"3822017164","creditcardtype":1,"creditcard":"5.6965E+15","creditcardexpiration":"2009/07","username":"user1142","password":"password","age":19,"income":60000,"gender":"M"}, 
+ {"customerid":1649,"firstname":"JDUROA","lastname":"OITIDLCOWY","address1":"8984373958 Dell Way","address2":"\\N","city":"KVUBVKW","state":"DC","zip":31090,"country":"US","region":1,"email":"OITIDLCOWY@dell.com","phone":"8984373958","creditcardtype":1,"creditcard":"4.60979E+15","creditcardexpiration":"2008/12","username":"user1649","password":"password","age":53,"income":60000,"gender":"F"}, 
+ {"customerid":1783,"firstname":"EPAVFB","lastname":"DMFQCGTSPO","address1":"2430551765 Dell Way","address2":"\\N","city":"YWRTRXL","state":"DC","zip":72317,"country":"US","region":1,"email":"DMFQCGTSPO@dell.com","phone":"2430551765","creditcardtype":1,"creditcard":"1.20728E+15","creditcardexpiration":"2012/11","username":"user1783","password":"password","age":71,"income":20000,"gender":"M"}, 
+ {"customerid":1850,"firstname":"GJLXIG","lastname":"NPZORKOARY","address1":"9529661829 Dell Way","address2":"\\N","city":"DTBJYWS","state":"DC","zip":68904,"country":"US","region":1,"email":"NPZORKOARY@dell.com","phone":"9529661829","creditcardtype":1,"creditcard":"3.15595E+15","creditcardexpiration":"2012/08","username":"user1850","password":"password","age":84,"income":20000,"gender":"M"}, 
+ {"customerid":2175,"firstname":"ASBKFG","lastname":"KOSQNANWOF","address1":"2681160343 Dell Way","address2":"\\N","city":"FCQDUDR","state":"DC","zip":99739,"country":"US","region":1,"email":"KOSQNANWOF@dell.com","phone":"2681160343","creditcardtype":1,"creditcard":"1.70682E+15","creditcardexpiration":"2011/05","username":"user2175","password":"password","age":90,"income":100000,"gender":"F"}, 
+ {"customerid":2660,"firstname":"UCGGHU","lastname":"OHHVHXCZNR","address1":"3342260060 Dell Way","address2":"\\N","city":"HWPCHIQ","state":"DC","zip":53919,"country":"US","region":1,"email":"OHHVHXCZNR@dell.com","phone":"3342260060","creditcardtype":1,"creditcard":"8.66773E+15","creditcardexpiration":"2012/12","username":"user2660","password":"password","age":40,"income":80000,"gender":"F"}, 
+ {"customerid":2755,"firstname":"DSDXMC","lastname":"BBUNIVOLVM","address1":"6122923115 Dell Way","address2":"\\N","city":"RUNONCS","state":"DC","zip":75752,"country":"US","region":1,"email":"BBUNIVOLVM@dell.com","phone":"6122923115","creditcardtype":1,"creditcard":"9.37219E+15","creditcardexpiration":"2011/06","username":"user2755","password":"password","age":30,"income":100000,"gender":"F"}, 
+ {"customerid":3001,"firstname":"CCXDPU","lastname":"OPKDZIUWPH","address1":"4352676523 Dell Way","address2":"\\N","city":"BWEBWLB","state":"DC","zip":43518,"country":"US","region":1,"email":"OPKDZIUWPH@dell.com","phone":"4352676523","creditcardtype":1,"creditcard":"3.01207E+15","creditcardexpiration":"2010/07","username":"user3001","password":"password","age":20,"income":80000,"gender":"M"}, 
+ {"customerid":3260,"firstname":"MFKKHW","lastname":"KBULQOYIJL","address1":"3904962332 Dell Way","address2":"\\N","city":"GSWVHTH","state":"DC","zip":73151,"country":"US","region":1,"email":"KBULQOYIJL@dell.com","phone":"3904962332","creditcardtype":1,"creditcard":"9.53946E+15","creditcardexpiration":"2010/03","username":"user3260","password":"password","age":38,"income":20000,"gender":"F"}, 
+ {"customerid":3371,"firstname":"BSESVQ","lastname":"NIZAXFRRKB","address1":"6482860348 Dell Way","address2":"\\N","city":"SKOQJXC","state":"DC","zip":81168,"country":"US","region":1,"email":"NIZAXFRRKB@dell.com","phone":"6482860348","creditcardtype":1,"creditcard":"6.45399E+15","creditcardexpiration":"2008/08","username":"user3371","password":"password","age":89,"income":20000,"gender":"F"}, 
+ {"customerid":3425,"firstname":"NJHNQO","lastname":"VRQNBGNRFL","address1":"4610342710 Dell Way","address2":"\\N","city":"RZDYUGX","state":"DC","zip":94526,"country":"US","region":1,"email":"VRQNBGNRFL@dell.com","phone":"4610342710","creditcardtype":1,"creditcard":"3.55919E+15","creditcardexpiration":"2011/04","username":"user3425","password":"password","age":23,"income":40000,"gender":"M"}, 
+ {"customerid":3756,"firstname":"DAAGXL","lastname":"PWVBRKPVJB","address1":"1630639722 Dell Way","address2":"\\N","city":"VVIULYU","state":"DC","zip":33023,"country":"US","region":1,"email":"PWVBRKPVJB@dell.com","phone":"1630639722","creditcardtype":1,"creditcard":"1.20471E+15","creditcardexpiration":"2012/02","username":"user3756","password":"password","age":48,"income":20000,"gender":"F"}, 
+ {"customerid":4099,"firstname":"HCVDWI","lastname":"GLLNPAVSSX","address1":"5969128264 Dell Way","address2":"\\N","city":"WCYEDKL","state":"DC","zip":10416,"country":"US","region":1,"email":"GLLNPAVSSX@dell.com","phone":"5969128264","creditcardtype":1,"creditcard":"6.56663E+15","creditcardexpiration":"2009/09","username":"user4099","password":"password","age":87,"income":80000,"gender":"M"}, 
+ {"customerid":4388,"firstname":"IVLHIP","lastname":"LAHMKTGIHY","address1":"8361555939 Dell Way","address2":"\\N","city":"WGYUGOX","state":"DC","zip":62211,"country":"US","region":1,"email":"LAHMKTGIHY@dell.com","phone":"8361555939","creditcardtype":1,"creditcard":"5.86892E+15","creditcardexpiration":"2009/08","username":"user4388","password":"password","age":46,"income":80000,"gender":"F"}, 
+ {"customerid":4662,"firstname":"EXMHOS","lastname":"EOZDHQXUXG","address1":"7487375427 Dell Way","address2":"\\N","city":"KEBDQQW","state":"DC","zip":15107,"country":"US","region":1,"email":"EOZDHQXUXG@dell.com","phone":"7487375427","creditcardtype":1,"creditcard":"3.9404E+15","creditcardexpiration":"2008/06","username":"user4662","password":"password","age":35,"income":40000,"gender":"F"}, 
+ {"customerid":4749,"firstname":"WAQPKV","lastname":"HORHUXPIBX","address1":"6766773463 Dell Way","address2":"\\N","city":"BATNXAD","state":"DC","zip":31773,"country":"US","region":1,"email":"HORHUXPIBX@dell.com","phone":"6766773463","creditcardtype":1,"creditcard":"8.36718E+15","creditcardexpiration":"2009/04","username":"user4749","password":"password","age":30,"income":40000,"gender":"F"}, 
+ {"customerid":5044,"firstname":"YABRBB","lastname":"JOBIQDNHTC","address1":"7061668531 Dell Way","address2":"\\N","city":"KXPEZIH","state":"DC","zip":55577,"country":"US","region":1,"email":"JOBIQDNHTC@dell.com","phone":"7061668531","creditcardtype":1,"creditcard":"4.93022E+15","creditcardexpiration":"2009/10","username":"user5044","password":"password","age":34,"income":40000,"gender":"M"}, 
+ {"customerid":5246,"firstname":"LXATMC","lastname":"CBPQEPFMYJ","address1":"1661468584 Dell Way","address2":"\\N","city":"AXACZTT","state":"DC","zip":96946,"country":"US","region":1,"email":"CBPQEPFMYJ@dell.com","phone":"1661468584","creditcardtype":1,"creditcard":"6.08384E+15","creditcardexpiration":"2012/06","username":"user5246","password":"password","age":82,"income":40000,"gender":"F"}, 
+ {"customerid":5427,"firstname":"JJWEWF","lastname":"SSHSEKPFIR","address1":"4439191191 Dell Way","address2":"\\N","city":"IQYQYYM","state":"DC","zip":48691,"country":"US","region":1,"email":"SSHSEKPFIR@dell.com","phone":"4439191191","creditcardtype":1,"creditcard":"1.10273E+15","creditcardexpiration":"2009/03","username":"user5427","password":"password","age":79,"income":80000,"gender":"M"}, 
+ {"customerid":5531,"firstname":"KILKRK","lastname":"HXWBNQZPJJ","address1":"2062722207... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20220620 12:31:31.986" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220620 12:31:31.973" endtime="20220620 12:31:31.987"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${expected result} != 200</arg>
+<arg>should contain</arg>
+<arg>${response.json()}[message]</arg>
+<arg>${message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220620 12:31:31.987" endtime="20220620 12:31:31.987"/>
+</kw>
+<status status="PASS" starttime="20220620 12:31:31.972" endtime="20220620 12:31:31.988"/>
+</kw>
+<kw name="Get And Check Response">
+<arg>products</arg>
+<arg>category=eq.16&amp;price=gt.20</arg>
+<arg>200</arg>
+<kw name="GET On Session" library="Req">
+<var>${response}</var>
+<arg>alias</arg>
+<arg>/${table}?</arg>
+<arg>params=${params}</arg>
+<arg>expected_status=${expected result}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220620 12:31:31.998" level="INFO">GET Request : url=http://localhost:3000/products?category=eq.16&amp;price=gt.20 
+ path_url=/products?category=eq.16&amp;price=gt.20 
+ headers={'User-Agent': 'python-requests/2.25.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220620 12:31:31.998" level="INFO">GET Response : url=http://localhost:3000/products?category=eq.16&amp;price=gt.20 
+ status=200, reason=OK 
+ headers={'Transfer-Encoding': 'chunked', 'Date': 'Mon, 20 Jun 2022 09:31:31 GMT', 'Server': 'postgrest/9.0.0', 'Content-Range': '0-291/*', 'Content-Location': '/products?category=eq.16&amp;price=gt.20', 'Content-Type': 'application/json; charset=utf-8'} 
+ body=[{"prod_id":16,"category":16,"title":"ACADEMY ALLEY","actor":"MARLON LUGOSI","price":27.99,"special":0,"common_prod_id":9240}, 
+ {"prod_id":18,"category":16,"title":"ACADEMY ALTER","actor":"CHARLIZE WAHLBERG","price":27.99,"special":0,"common_prod_id":4320}, 
+ {"prod_id":87,"category":16,"title":"ACADEMY BOONDOCK","actor":"RIP RYDER","price":21.99,"special":0,"common_prod_id":9953}, 
+ {"prod_id":98,"category":16,"title":"ACADEMY BRIGHT","actor":"SISSY WEAVER","price":25.99,"special":0,"common_prod_id":5368}, 
+ {"prod_id":109,"category":16,"title":"ACADEMY BUTTERFLY","actor":"SANDRA BRODY","price":22.99,"special":0,"common_prod_id":9246}, 
+ {"prod_id":209,"category":16,"title":"ACADEMY DARKNESS","actor":"MORGAN RUSSELL","price":24.99,"special":0,"common_prod_id":6457}, 
+ {"prod_id":240,"category":16,"title":"ACADEMY DOLLS","actor":"GREG CRUZ","price":20.99,"special":0,"common_prod_id":2132}, 
+ {"prod_id":243,"category":16,"title":"ACADEMY DOORS","actor":"LISA KEATON","price":24.99,"special":1,"common_prod_id":4739}, 
+ {"prod_id":374,"category":16,"title":"ACADEMY GRAFFITI","actor":"WHOOPI FINNEY","price":23.99,"special":1,"common_prod_id":4867}, 
+ {"prod_id":427,"category":16,"title":"ACADEMY HOMEWARD","actor":"CARY BRODY","price":27.99,"special":0,"common_prod_id":2950}, 
+ {"prod_id":491,"category":16,"title":"ACADEMY JUMPING","actor":"NICK IRONS","price":25.99,"special":0,"common_prod_id":9630}, 
+ {"prod_id":528,"category":16,"title":"ACADEMY LOLITA","actor":"SUSAN RUSSELL","price":27.99,"special":0,"common_prod_id":5488}, 
+ {"prod_id":544,"category":16,"title":"ACADEMY MADISON","actor":"SANDRA WOOD","price":20.99,"special":0,"common_prod_id":4533}, 
+ {"prod_id":570,"category":16,"title":"ACADEMY MERMAID","actor":"GINA BAILEY","price":23.99,"special":0,"common_prod_id":1442}, 
+ {"prod_id":584,"category":16,"title":"ACADEMY MIXED","actor":"WILLIAM HAWN","price":27.99,"special":0,"common_prod_id":9281}, 
+ {"prod_id":589,"category":16,"title":"ACADEMY MODERN","actor":"CHRIS SWANK","price":29.99,"special":0,"common_prod_id":9167}, 
+ {"prod_id":644,"category":16,"title":"ACADEMY OSCAR","actor":"GLENN KEATON","price":28.99,"special":0,"common_prod_id":8521}, 
+ {"prod_id":675,"category":16,"title":"ACADEMY PHANTOM","actor":"EMILY BERGEN","price":24.99,"special":0,"common_prod_id":6089}, 
+ {"prod_id":749,"category":16,"title":"ACADEMY RULES","actor":"JOAN DENCH","price":22.99,"special":0,"common_prod_id":9643}, 
+ {"prod_id":797,"category":16,"title":"ACADEMY SILENCE","actor":"ELLEN DREYFUSS","price":26.99,"special":0,"common_prod_id":4773}, 
+ {"prod_id":856,"category":16,"title":"ACADEMY STREETCAR","actor":"ADRIEN SILVERSTONE","price":21.99,"special":0,"common_prod_id":9694}, 
+ {"prod_id":904,"category":16,"title":"ACADEMY TRAIN","actor":"JODIE PALTROW","price":28.99,"special":0,"common_prod_id":2434}, 
+ {"prod_id":951,"category":16,"title":"ACADEMY VOYAGE","actor":"RUBY GARCIA","price":28.99,"special":0,"common_prod_id":6850}, 
+ {"prod_id":1075,"category":16,"title":"ACE BIRD","actor":"JESSICA DAFOE","price":20.99,"special":0,"common_prod_id":6652}, 
+ {"prod_id":1202,"category":16,"title":"ACE DADDY","actor":"KIRSTEN DAFOE","price":27.99,"special":0,"common_prod_id":9654}, 
+ {"prod_id":1213,"category":16,"title":"ACE DATE","actor":"INGRID COSTNER","price":27.99,"special":0,"common_prod_id":1699}, 
+ {"prod_id":1282,"category":16,"title":"ACE ENCOUNTERS","actor":"RIP CRAWFORD","price":20.99,"special":0,"common_prod_id":3654}, 
+ {"prod_id":1308,"category":16,"title":"ACE FERRIS","actor":"SALLY RYDER","price":22.99,"special":0,"common_prod_id":7000}, 
+ {"prod_id":1323,"category":16,"title":"ACE FLIGHT","actor":"HILARY HANNAH","price":27.99,"special":0,"common_prod_id":7189}, 
+ {"prod_id":1330,"category":16,"title":"ACE FORRESTER","actor":"CANDICE CAMPBELL","price":21.99,"special":0,"common_prod_id":2972}, 
+ {"prod_id":1363,"category":16,"title":"ACE GO","actor":"GARY SANDLER","price":24.99,"special":0,"common_prod_id":7115}, 
+ {"prod_id":1374,"category":16,"title":"ACE GRAFFITI","actor":"REESE NORTON","price":22.99,"special":0,"common_prod_id":1691}, 
+ {"prod_id":1693,"category":16,"title":"ACE POTTER","actor":"VAL CARREY","price":22.99,"special":0,"common_prod_id":921}, 
+ {"prod_id":1698,"category":16,"title":"ACE PRINCESS","actor":"ORLANDO DUKAKIS","price":28.99,"special":0,"common_prod_id":2010}, 
+ {"prod_id":1716,"category":16,"title":"ACE REAP","actor":"MINNIE DICAPRIO","price":25.99,"special":0,"common_prod_id":2769}, 
+ {"prod_id":1801,"category":16,"title":"ACE SISTER","actor":"JOHN BARRYMORE","price":26.99,"special":0,"common_prod_id":5283}, 
+ {"prod_id":1809,"category":16,"title":"ACE SLIPPER","actor":"SIDNEY NEWMAN","price":29.99,"special":1,"common_prod_id":7216}, 
+ {"prod_id":1859,"category":16,"title":"ACE SUGAR","actor":"MERYL SILVERSTONE","price":20.99,"special":0,"common_prod_id":7588}, 
+ {"prod_id":1880,"category":16,"title":"ACE TELEMARK","actor":"KATHARINE LANCASTER","price":25.99,"special":0,"common_prod_id":4803}, 
+ {"prod_id":1957,"category":16,"title":"ACE WAR","actor":"STEVE FREEMAN","price":23.99,"special":0,"common_prod_id":2755}, 
+ {"prod_id":1981,"category":16,"title":"ACE WOLVES","actor":"SHIRLEY BRANDO","price":29.99,"special":0,"common_prod_id":6285}, 
+ {"prod_id":2025,"category":16,"title":"ADAPTATION ANGELS","actor":"DENNIS NEWMAN","price":27.99,"special":0,"common_prod_id":175}, 
+ {"prod_id":2084,"category":16,"title":"ADAPTATION BOILED","actor":"PAUL ROBBINS","price":26.99,"special":0,"common_prod_id":4617}, 
+ {"prod_id":2089,"category":16,"title":"ADAPTATION BORROWERS","actor":"HUMPHREY BALL","price":24.99,"special":0,"common_prod_id":9286}, 
+ {"prod_id":2106,"category":16,"title":"ADAPTATION BULWORTH","actor":"MATTHEW HOPPER","price":29.99,"special":0,"common_prod_id":4183}, 
+ {"prod_id":2121,"category":16,"title":"ADAPTATION CAROL","actor":"MERYL BLOOM","price":20.99,"special":0,"common_prod_id":2055}, 
+ {"prod_id":2157,"category":16,"title":"ADAPTATION CLOCKWORK","actor":"ALEC DERN","price":27.99,"special":0,"common_prod_id":8761}, 
+ {"prod_id":2223,"category":16,"title":"ADAPTATION DESIRE","actor":"PAUL RICKMAN","price":22.99,"special":0,"common_prod_id":3191}, 
+ {"prod_id":2240,"category":16,"title":"ADAPTATION DOLLS","actor":"MARILYN PENN","price":24.99,"special":0,"common_prod_id":8800}, 
+ {"prod_id":2248,"category":16,"title":"ADAPTATION DOZEN","actor":"MILLA LEWIS","price":27.99,"special":0,"common_prod_id":1093}, 
+ {"prod_id":2249,"category":16,"title":"ADAPTATION DRACULA","actor":"NATALIE MIRANDA","price":29.99,"special":0,"common_prod_id":6354}, 
+ {"prod_id":2286,"category":16,"title":"ADAPTATION ENOUGH","actor":"SIDNEY CAGE","price":29.99,"special":0,"common_prod_id":5740}, 
+ {"prod_id":2308,"category":16,"title":"ADAPTATION FERRIS","actor":"JEREMY WRAY","price":23.99,"special":0,"common_prod_id":3078}, 
+ {"prod_id":2325,"category":16,"title":"ADAPTATION FLOATS","actor":"ED CARREY","price":23.99,"special":0,"common_prod_id":7101}, 
+ {"prod_id":2326,"category":16,"title":"ADAPTATION FLYING","actor":"ANNETTE KEITEL","price":22.99,"special":0,"common_prod_id":92}, 
+ {"prod_id":2455,"category":16,"title":"ADAPTATION IMPOSSIBLE","actor":"DANIEL RUSH","price":21.99,"special":0,"common_prod_id":8036}, 
+ {"prod_id":2457,"category":16,"title":"ADAPTATION INDEPENDENCE","actor":"SALLY PITT","price":20.99,"special":0,"common_prod_id":3924}, 
+ {"prod_id":2489,"category":16,"title":"ADAPTATION JUGGLER","actor":"ALEC DEE","price":28.99,"special":0,"common_prod_id":5795}, 
+ {"prod_id":2563,"category":16,"title":"ADAPTATION MASSACRE","actor":"DREW TOMEI","price":27.99,"special":0,"common_prod_id":5714}, 
+ {"prod_id":2579,"category":16,"title":"ADAPTATION MINDS","actor":"ELIZABETH COOPER","price":24.99,"special":0,"common_prod_id":3260}, 
+ {"prod_id":2596,"category":16,"title":"ADAPTATION MOONSHINE","actor":"SANDRA MCCONAUGHEY","price":20.99,"special":0,"common_prod_id":5356}, 
+ {"prod_id":2648,"category":16,"title":"ADAPTATION OUTLAW","actor":"LIV BOLGER","price":25.99,"special":0,"common_prod_id":9425}, 
+ {"prod_id":2668,"category":16,"title":"ADAPTATION PEAK","actor":"ANGELINA PFEIFFER","price":24.99,"special":0,"common_prod_id":7478}, 
+ {"prod_id":2678,"category":16,"title":"ADAPTATION PICKUP","actor":"WOODY GABLE","price":28.99,"special":0,"common_prod_id":5871}, 
+ {"prod_id":2709,"category":16,"title":"ADAPTATION RACER","actor":"HENRY BERRY","price":23.99,"special":0,"common_prod_id":1044}, 
+ {"prod_id":2728,"category":16,"title":"ADAPTATION REUNION","actor":"NICOLAS PITT","price":23.99,"special":0,"common_prod_id":6610}, 
+ {"prod_id":2865,"category":16,"title":"ADAPTATION SUNRISE","actor":"UMA HUSTON","price":27.99,"special":0,"common_prod_id":8789}, 
+ {"prod_id":2920,"category":16,"title":"ADAPTATION UNBREAKABLE","actor":"BELA MARTIN","price":21.99,"special":0,"common_prod_id":2018}, 
+ {"prod_id":2922,"category":16,"title":"ADAPTATION UNDEFEATED","actor":"HALLE WINFREY","price":20.99,"special":0,"common_prod_id":8214}, 
+ {"prod_id":2936,"category":16,"title":"ADAPTATION VANISHING","actor":"MARILYN CRUISE","price":27.99,"special":0,"common_prod_id":9935}, 
+ {"prod_id":2946,"category":16,"title":"ADAPTATION VIRTUAL","actor":"SHIRLEY TANDY","price":25.99,"special":0,"common_prod_id":1074}, 
+ {"prod_id":2965,"category":16,"title":"ADAPTATION WATERSHIP","actor":"NATALIE DOUGLAS","price":24.99,"special":0,"common_prod_id":4037}, 
+ {"prod_id":3013,"category":16,"title":"AFFAIR ALI","actor":"SOPHIA CROWE","price":22.99,"special":0,"common_prod_id":5729}, 
+ {"prod_id":3048,"category":16,"title":"AFFAIR BACKLASH","actor":"CUBA PRESLEY","price":20.99,"special":0,"common_prod_id":7230}, 
+ {"prod_id":3077,"category":16,"title":"AFFAIR BIRDS","actor":"SHIRLEY BLANCHETT","price":24.99,"special":0,"common_prod_id":6464}, 
+ {"prod_id":3082,"category":16,"title":"AFFAIR BLOOD","actor":"CHARLTON CHASE","price":26.99,"special":0,"common_prod_id":7846}, 
+ {"prod_id":3097,"category":16,"title":"AFFAIR ... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20220620 12:31:31.999" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220620 12:31:31.989" endtime="20220620 12:31:31.999"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${expected result} != 200</arg>
+<arg>should contain</arg>
+<arg>${response.json()}[message]</arg>
+<arg>${message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220620 12:31:31.999" endtime="20220620 12:31:31.999"/>
+</kw>
+<status status="PASS" starttime="20220620 12:31:31.988" endtime="20220620 12:31:31.999"/>
+</kw>
+<kw name="Test Teardown" type="TEARDOWN">
+<kw name="Delete All Sessions" library="Req">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20220620 12:31:32.000" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20220620 12:31:32.000" endtime="20220620 12:31:32.000"/>
+</kw>
+<status status="PASS" starttime="20220620 12:31:32.000" endtime="20220620 12:31:32.000"/>
+</kw>
+<status status="PASS" starttime="20220620 12:31:31.957" endtime="20220620 12:31:32.000"/>
+</test>
+<status status="PASS" starttime="20220620 12:31:31.456" endtime="20220620 12:31:32.001"/>
+</suite>
+<status status="PASS" starttime="20220620 12:31:31.431" endtime="20220620 12:31:32.002"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="NGDZ">NGDZ</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s1" name="BD TEST">NGDZ.BD TEST</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

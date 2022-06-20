@@ -2,7 +2,6 @@
 Resource        resource.robot
 Test Setup      Test Setup
 Test Teardown   Test Teardown
-#Test Template   Get And Check Response
 *** Variables ***
 ${resp}
 ${body1}
